@@ -1,0 +1,18 @@
+2024-05-09 12:16:22,241:INFO:DB Connected successfully
+2024-05-09 12:16:22,335:INFO:Steps DataFrame head:
+        ID  ...                    UPDATED_AT
+0  7075798  ...  2024-03-01T18:00:01.005+0100
+1  7026711  ...  2024-02-23T06:00:01.013+0100
+
+[2 rows x 5 columns]
+2024-05-09 12:16:22,335:INFO:Steps DataFrame head:
+         ID  ...                    UPDATED_AT
+0   1760588  ...  2023-12-02T16:08:16.809+0100
+1  25820128  ...  2024-01-03T15:29:01.871+0100
+
+[2 rows x 5 columns]
+2024-05-09 12:16:22,335:INFO:Steps DataFrame head:
+   Unnamed: 0  PATIENT_ID first_name  last_name   country
+0           0        2227      Emily  Castaneda  Ethiopia
+1           1        5744      Logan    Coleman   Romania
+2024-05-09 12:16:23,981:INFO:Data uploaded successfully!
