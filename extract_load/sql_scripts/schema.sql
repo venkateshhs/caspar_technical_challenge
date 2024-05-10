@@ -87,7 +87,7 @@ ExerciseMinutes AS (
 CombinedMinutes AS (
     SELECT
         COALESCE(s."EXTERNAL_ID", e."EXTERNAL_ID") AS "EXTERNAL_ID",
-        COALESCE(s.total_generated_minutes, 0) + COALESCE(e.total_exercise_minutes, 0) AS total_minutes
+        CAST(COALESCE(s.total_generated_minutes, 0) + COALESCE(e.total_exercise_minutes, 0) AS INTEGER) AS total_minutes
     FROM
         StepMinutes s
     FULL OUTER JOIN ExerciseMinutes e
@@ -103,5 +103,6 @@ FROM
     CombinedMinutes cm
 JOIN patients p ON cm."EXTERNAL_ID" = p."PATIENT_ID"
 ORDER BY cm.total_minutes DESC;
+
 
 
