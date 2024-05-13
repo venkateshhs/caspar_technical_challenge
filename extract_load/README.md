@@ -23,8 +23,5 @@ Also, install all the packages in requirements.txt
     4. logs folder contains logs of each run as a textfile referenced using timestamp of each run.
     5. To insert data into database, run read_csv_write_to_db.py using the command: python read_csv_write_to_db.py in CLI.
     6. Data is inserted into db. 
-    7. Open pgadmin, create server and check output.
-
-## Steps to reproduce
-    
+    7. Open pgadmin, create server and check output.   
     
