@@ -1,8 +1,8 @@
 # Caspar Technnical Challenge
 This repository contains 3 sub folders
-    1. AWS : ELT pipeline built using AWS.
-    2. docker_pipeline : ELT pipline built using docker.
-    3. extract_load : A nomal ELT pipline built by using pgadmin, sql and python.
+        1. AWS : ELT pipeline built using AWS.
+        2. docker_pipeline : ELT pipline built using docker.
+        3. extract_load : A nomal ELT pipline built by using pgadmin, sql and python.
 
 Each of these sub folders contains separate README.md files explaining each approach.
 
