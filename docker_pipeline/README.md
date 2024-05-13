@@ -8,10 +8,10 @@ Prerequisites
     1. Docker (https://www.docker.com/products/docker-desktop/) and git should be installed in host machine.
 
 ## Step1: 
-run or start the docker desktop.
-Clone repository : https://github.com/venkateshhs/caspar_technical_challenge.git
-Move to directory docker_pipeline using command: cd docker_pipeline in CLI.
-run command: docker-compose up --build as shown in figure in CLI.
+a. run or start the docker desktop.
+b. Clone repository : https://github.com/venkateshhs/caspar_technical_challenge.git
+c. Move to directory docker_pipeline using command: cd docker_pipeline in CLI.
+d. run command: docker-compose up --build as shown in figure in CLI.
 
 ![Step1](images/step1.png)
 
@@ -21,47 +21,47 @@ Database gets created and csv's are written into respective table as shown in fi
 ![Step2](images/step2.png)
 
 ## Step3:
-Open any browser and run : http://localhost:8080 as shown in figure.
-Input admin@admin.com and admin as username and password -> press Login
+a. Open any browser and run : http://localhost:8080 as shown in figure.
+b. Input admin@admin.com and admin as username and password -> press Login
 
 ![Step3](images/step3.png)
 
 ## Step4:
-pgadmin gets loaded.
-right click on Server -> Register -> Server
-Register server dialog gets opened.
+a. pgadmin gets loaded.
+b. right click on Server -> Register -> Server
+c. Register server dialog gets opened.
 
 ![Step4](images/step4.png)
 
 ## Step5:
-Go to Connection tab.
-Input :
+a. Go to Connection tab.
+b. Input :
     Host name / Address: postgres
     Port: 5432
     Maintainance databse : docker_hospital_databse
     Username: postgres
     Password: root
-Click save.
+c. Click save.
 
 ![Step5](images/step5.png)
 
 ## Step6: 
-pgadmin gets opened.
-Click Server -> postgres -> Database -> docker_hospital_database
-Right click on docker_hospital_database and select Query Tool.
-Copy and Paste query from query.sql
+a. pgadmin gets opened.
+b. Click Server -> postgres -> Database -> docker_hospital_database
+c. Right click on docker_hospital_database and select Query Tool.
+d. Copy and Paste query from query.sql
 
 ![Step6](images/step6.png)
 
 ## Step7:
-Run each query one by one (By selecting the entire query) using Windows+F5 key.
-Results gets displayed.
+a. Run each query one by one (By selecting the entire query) using Windows+F5 key.
+b. Results gets displayed.
 
 ![Step7](images/step7.png)
 
 ## Step8:
-Go to CLI where docker commands are running. Press CTRL+C.
-Run command: Docker-compose down.
+a. Go to CLI where docker commands are running. Press CTRL+C.
+b. Run command: Docker-compose down.
 
 ![Step8](images/step8.png)
 
