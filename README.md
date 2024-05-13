@@ -18,8 +18,9 @@ Data_transformation assumptions:
 2. Column STEPS in table(or csv) is renamed as footsteps in db to reduce ambiguity (as there is also a table called steps).
 3. All the data transformations are done using sql.
 
-Answer to the Question:"Find the patient(s) with the most generated minutes" is 
+Answer to the Question:"Find the patient(s) with the most generated minutes" is:
+
 ![Final Result](final_result.png)
 
 
-For individual implementation details, Please go to sub folders AWS, docker_pipeline and extract_load
+For individual implementation details, Please go to the respective folders AWS, docker_pipeline and extract_load.
