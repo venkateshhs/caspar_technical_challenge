@@ -23,9 +23,10 @@ final query for the result is performed. All these query scripts are provided in
 
 
 ## Video Proof
-    Since VPC(S3_endpoint) was charging money, I had to stop the services. I have attached a video of the working.
-    Please let me know if I need  to reproduce the results. Happy to do so.
-    Video: https://github.com/venkateshhs/caspar_technical_challenge/tree/main/AWS/video_proof
+The VPC endpoint to access S3 files and download using lambda which is configured within the VPC was charging money, I have deleted the resources (VPC and RDS) created on AWS. I have attached a video of the working.
+
+Please let me know if I need  to reproduce the results. Happy to do so.
+Video: https://github.com/venkateshhs/caspar_technical_challenge/tree/main/AWS/video_proof
 
     
     
