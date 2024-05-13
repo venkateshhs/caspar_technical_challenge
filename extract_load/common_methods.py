@@ -13,6 +13,7 @@ def test_connection(engine):
     except Exception as e:
         return False
 
+
 def get_credentials():
     """
     Load database credentials from an .env file and return them.

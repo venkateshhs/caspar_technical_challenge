@@ -73,7 +73,7 @@ ON s."EXTERNAL_ID" = e."EXTERNAL_ID" ORDER BY s."EXTERNAL_ID" DESC;
 
 
 
--- COrrect Version wirth patient details
+-- COrrect Version with patient details
 WITH StepMinutes AS (
     SELECT "EXTERNAL_ID", SUM("generated_minutes") AS total_generated_minutes
     FROM steps

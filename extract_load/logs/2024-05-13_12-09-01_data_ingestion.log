@@ -1,0 +1,14 @@
+2024-05-13 12:09:01,204:INFO:DB Connected successfully
+2024-05-13 12:09:01,317:INFO:Steps DataFrame example:
+        ID  EXTERNAL_ID  STEPS               SUBMISSION_TIME                    UPDATED_AT
+0  7075798         2227    163  2024-02-29T01:00:00.000+0100  2024-03-01T18:00:01.005+0100
+1  7026711         2227    104  2024-02-23T01:00:00.000+0100  2024-02-23T06:00:01.013+0100
+2024-05-13 12:09:01,321:INFO:exercises_df  DataFrame example:
+         ID  EXTERNAL_ID  MINUTES                  COMPLETED_AT                    UPDATED_AT
+0   1760588         2227        1  2019-11-26T13:13:43.825+0100  2023-12-02T16:08:16.809+0100
+1  25820128         2227       20  2023-07-21T16:27:15.000+0200  2024-01-03T15:29:01.871+0100
+2024-05-13 12:09:01,325:INFO:patients  DataFrame example:
+   Unnamed: 0  PATIENT_ID first_name  last_name   country
+0           0        2227      Emily  Castaneda  Ethiopia
+1           1        5744      Logan    Coleman   Romania
+2024-05-13 12:09:02,767:INFO:Data uploaded successfully!

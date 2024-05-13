@@ -3,7 +3,7 @@ import traceback
 import pandas as pd
 from sqlalchemy import create_engine
 
-from caspar_technical_challenge.extract_load.common_methods import get_credentials, setup_logging, test_connection
+from common_methods import get_credentials, setup_logging, test_connection
 import logging
 
 setup_logging()
