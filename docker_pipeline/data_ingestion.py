@@ -3,11 +3,12 @@ import traceback
 import pandas as pd
 from sqlalchemy import create_engine
 import logging
-from datetime import datetime
 import time
+
 
 def get_credentials():
     """ Load database credentials from environment variables or hard-coded for Docker use. """
+    # TODO replace hard coded credentials with env variables or as user input
     credentials = {
         'host': 'postgres',  # Docker service name
         'dbname': 'docker_hospital_database',
@@ -17,10 +18,12 @@ def get_credentials():
     }
     return credentials
 
+
 def setup_logging():
-    """ Sets up logging to stdout to take advantage of Docker's logging mechanism. """
+    """ Sets up logging to stdout"""
     logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
     return logging.getLogger(__name__)
+
 
 def test_connection(engine):
     """ Test the database connection with retry logic. """
@@ -40,8 +43,9 @@ def test_connection(engine):
                 logging.error("All connection attempts failed.")
     return False
 
+
 def data_ingestion():
-    """ Main function to ingest data from CSV to PostgreSQL. """
+    """ function to ingest data from CSV to PostgreSQL. """
     logger = setup_logging()
     creds = get_credentials()
     engine = create_engine(
@@ -51,7 +55,7 @@ def data_ingestion():
         logger.error("Database connection error. Exiting.")
         return
 
-    data_dir = '/data'  # Assuming '/data' is the Docker volume path mounted to the host
+    data_dir = '/data'  # name of docker volume created
     try:
         steps_df = pd.read_csv(os.path.join(data_dir, 'steps.csv'))
         exercises_df = pd.read_csv(os.path.join(data_dir, 'exercises.csv'))
@@ -64,6 +68,7 @@ def data_ingestion():
         logger.info("Data uploaded successfully!")
     except Exception as e:
         logger.error(f"An error occurred: {traceback.format_exc()}")
+
 
 if __name__ == "__main__":
     data_ingestion()
