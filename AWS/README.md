@@ -28,5 +28,14 @@ The VPC endpoint to access S3 files and download using lambda which is configure
 Please let me know if I need  to reproduce the results. Happy to do so.
 Video: https://github.com/venkateshhs/caspar_technical_challenge/tree/main/AWS/video_proof
 
+Creating lamda custom layer steps:
+
+    conda create --name myenv
+    conda activate myenv
+    pip install --target ./python sqlalchemy
+    zip python folder
+    got lambda console
+    add layer
+
     
     

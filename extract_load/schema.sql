@@ -106,3 +106,84 @@ ORDER BY cm.total_minutes DESC;
 
 
 
+
+-- Same queries USING WINDOW FUNCTIONS: RANK(), DENSE_RANK() and ROW_NUMBER()
+--RANK()
+--Provides positional ranking , if two values are same, then the next value will be positional : 1,1,3
+
+WITH StepMinutes AS (
+    SELECT EXTERNAL_ID, SUM(generated_minutes) AS total_generated_minutes
+    FROM steps
+    GROUP BY EXTERNAL_ID
+),
+ExerciseMinutes AS (
+    SELECT EXTERNAL_ID, SUM(MINUTES) AS total_exercise_minutes
+    FROM exercises
+    GROUP BY EXTERNAL_ID
+),
+CombinedMinutes AS (
+    SELECT
+        COALESCE(s.EXTERNAL_ID, e.EXTERNAL_ID) AS EXTERNAL_ID,
+        CAST(COALESCE(s.total_generated_minutes, 0) + COALESCE(e.total_exercise_minutes, 0) AS INTEGER) AS total_minutes
+    FROM
+        StepMinutes s
+    FULL OUTER JOIN ExerciseMinutes e ON s.EXTERNAL_ID = e.EXTERNAL_ID
+),
+RankedPatients AS (
+    SELECT
+        p.PATIENT_ID,
+        p.first_name,
+        p.last_name,
+        p.country,
+        cm.total_minutes,
+        RANK() OVER (ORDER BY cm.total_minutes DESC) AS rnk
+    FROM
+        CombinedMinutes cm
+    JOIN patients p ON cm.EXTERNAL_ID = p.PATIENT_ID
+)
+SELECT *
+FROM RankedPatients
+WHERE rnk = 1;
+
+
+--DENSE_RANK()
+--Provides sequential ranking irrespective of same values , if two values are same, then the next value will be positional : 1,1,2
+WITH RankedPatients AS (
+    SELECT
+        p.PATIENT_ID,
+        p.first_name,
+        p.last_name,
+        p.country,
+        cm.total_minutes,
+        DENSE_RANK() OVER (ORDER BY cm.total_minutes DESC) AS dense_rnk
+    FROM
+        CombinedMinutes cm
+    JOIN patients p ON cm.EXTERNAL_ID = p.PATIENT_ID
+)
+SELECT *
+FROM RankedPatients
+WHERE dense_rnk = 1;
+
+
+-- ROW_NUMBER()
+--Just like indexing
+WITH RankedPatients AS (
+    SELECT
+        p.PATIENT_ID,
+        p.first_name,
+        p.last_name,
+        p.country,
+        cm.total_minutes,
+        ROW_NUMBER() OVER (ORDER BY cm.total_minutes DESC) AS row_num
+    FROM
+        CombinedMinutes cm
+    JOIN patients p ON cm.EXTERNAL_ID = p.PATIENT_ID
+)
+SELECT *
+FROM RankedPatients
+WHERE row_num = 1;
+
+--In our particular scenario we can use both DENSE_RANK() and RANK() since we are getting patients with most minutes
+-- In a case where get 5 top patients with most minutes, based on the business requirement select correct measure:
+--DENSE_RANK() would be the way to go in our scenario.
+
